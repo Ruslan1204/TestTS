@@ -49,3 +49,40 @@
 // };
 
 // logBrtSmg(isBirthdayData, userNameData, userAgeData);
+
+const userNameData: string = "Ruslan";
+const userAgeData: number = 36;
+const isBirthdayData: boolean = true;
+
+const userData = {
+  isBirthdayData: true,
+  userNameData: "Ruslan",
+  userAgeData: 36,
+  messages: {
+    error: "Error",
+  },
+};
+
+const createError = (msg: string) => {
+  throw new Error(msg);
+};
+
+const logBrtSmg = ({
+  isBirthdayData,
+  userNameData,
+  userAgeData,
+  messages: { error },
+}: {
+  isBirthdayData: boolean;
+  userNameData: string;
+  userAgeData: number;
+  messages: { error: string };
+}): string => {
+  if (isBirthdayData) {
+    return `Congrats ${userNameData.toUpperCase()}, age: ${userAgeData + 1}`;
+  } else return createError(error);
+};
+
+logBrtSmg(userData);
+
+const departments = ["dev", "design", "marketing"];
