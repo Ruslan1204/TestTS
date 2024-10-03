@@ -205,11 +205,67 @@
 // const [first] = report;
 // console.log(first);
 
-const message: string | number | boolean = 5;
-const messages: string[] | number[] = ["a", "b"];
+// const message: string | number | boolean = 5;
+// const messages: string[] | number[] = ["a", "b"];
 
-function printMsg(msg: string | number): void {
-  console.log(msg);
+// function printMsg(msg: string | number): void {
+//   console.log(msg);
+// }
+// printMsg(4);
+// printMsg('4');
+
+// function printMsg(msg: string | number): void {
+//   if (typeof msg === "string") {
+//     console.log(msg.toLocaleLowerCase);
+//   } else {
+//     console.log(msg.toFixed);
+//   }
+// }
+
+// function printMsg(msg: string | number | boolean): void {
+//   if (typeof msg === "string" || typeof msg === "number") {
+//     console.log(msg.toString);
+//   } else {
+//     console.log(msg);
+//   }
+// }
+
+function printMsg(msg: string[] | number | boolean): void {
+  if (Array.isArray(msg)) {
+    msg.forEach((m) => console.log(m));
+  } else if (typeof msg === "number") {
+    console.log(msg.toFixed);
+  } else {
+    console.log(msg);
+  }
 }
-printMsg(4);
-printMsg('4');
+printMsg(4.44);
+// printMsg("4");
+
+const printReadings = (a: number | string, b: number | boolean): void => {
+  if (a === b) {
+    console.log(a, b);
+  }
+};
+
+const printReadings2 = (a: number[] | string): void => {
+  console.log(a.slice(0, 1));
+};
+
+const checkReadings = (
+  readings: { system: number } | { user: number }
+): void => {
+  if ("system" in readings) {
+    console.log(readings.system);
+  } else {
+    console.log(readings.user);
+  }
+};
+
+function logValue(x: string | Date) {
+  if (x instanceof Date) {
+    console.log(x.getDate());
+  } else {
+    console.log(x.trim());
+  }
+}
