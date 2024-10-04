@@ -339,3 +339,36 @@
 //   return "Server started";
 // };
 // startServer(serverConfig.protocol, serverConfig.port);
+
+type AnimationYimingFunc = "ease" | "ease-out" | "ease-in";
+type AnimationID = number | string;
+
+type Config = { protocol: "http" | "https"; port: 3000 | 3001 };
+type Role = {
+  role: string;
+};
+type ConfigWithRole = Config & Role;
+
+type StartFunc = (protocol: "http" | "https", port: 3000 | 3001) => string;
+
+const serverConfig: ConfigWithRole = {
+  protocol: "http",
+  port: 3000,
+  role: "admin",
+};
+
+const backupConfig: ConfigWithRole = {
+  protocol: "https",
+  port: 3001,
+  role: "sysadmin",
+};
+
+const startServer: StartFunc = (
+  protocol: "http" | "https",
+  port: 3000 | 3001
+): "Server started" => {
+  console.log(`'Server started' on ${protocol}://server:${port}`);
+
+  return "Server started";
+};
+startServer(serverConfig.protocol, serverConfig.port);
