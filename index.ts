@@ -290,18 +290,52 @@
 // }
 // startServer("https", 3001);
 
-function createAnimation(
-  id: number | string,
-  animation: string,
-  timingFunc: "ease" | "ease-out" | "ease-in" = "ease",
-  duration: number,
-  interCount: "infinite" | number
-): void {
-  //   const elem = document.querySelector(`#${id}`) as HTMLElement;
+// function createAnimation(
+//   id: number | string,
+//   animation: string,
+//   timingFunc: "ease" | "ease-out" | "ease-in" = "ease",
+//   duration: number,
+//   interCount: "infinite" | number
+// ): void {
+//   //   const elem = document.querySelector(`#${id}`) as HTMLElement;
 
-  //   if (elem) {
-  console.log(`${animation} ${timingFunc} ${duration} ${interCount}`);
-  // elem.style.animation = `${animation} ${timingFunc} ${duration} ${interCount}`;
-  //   }
-}
-createAnimation("id", "fade", "ease-out", 3000, "infinite");
+//   //   if (elem) {
+//   console.log(`${animation} ${timingFunc} ${duration} ${interCount}`);
+//   // elem.style.animation = `${animation} ${timingFunc} ${duration} ${interCount}`;
+//   //   }
+// }
+// createAnimation("id", "fade", "ease-out", 3000, "infinite");
+
+// type AnimationYimingFunc = "ease" | "ease-out" | "ease-in";
+// type AnimationID = number | string;
+
+// function createAnimation(
+//   id: AnimationID,
+//   animation: string,
+//   timingFunc: "ease" | "ease-out" | "ease-in" = "ease",
+//   duration: number,
+//   interCount: "infinite" | number
+// ): void {
+//   //   const elem = document.querySelector(`#${id}`) as HTMLElement;
+
+//   //   if (elem) {
+//   console.log(`${animation} ${timingFunc} ${duration} ${interCount}`);
+//   // elem.style.animation = `${animation} ${timingFunc} ${duration} ${interCount}`;
+//   //   }
+// }
+// createAnimation("id", "fade", "ease-out", 3000, "infinite");
+
+// const serverConfig: { protocol: "http" | "https"; port: 3000 | 3001 } = {
+//   protocol: "http",
+//   port: 3000,
+// };
+
+// const startServer: (protocol: "http" | "https", port: 3000 | 3001) => string = (
+//   protocol: "http" | "https",
+//   port: 3000 | 3001
+// ): "Server started" => {
+//   console.log(`'Server started' on ${protocol}://server:${port}`);
+
+//   return "Server started";
+// };
+// startServer(serverConfig.protocol, serverConfig.port);
