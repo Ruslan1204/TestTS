@@ -340,35 +340,83 @@
 // };
 // startServer(serverConfig.protocol, serverConfig.port);
 
-type AnimationYimingFunc = "ease" | "ease-out" | "ease-in";
-type AnimationID = number | string;
+// type AnimationYimingFunc = "ease" | "ease-out" | "ease-in";
+// type AnimationID = number | string;
 
-type Config = { protocol: "http" | "https"; port: 3000 | 3001 };
-type Role = {
+// type Config = { protocol: "http" | "https"; port: 3000 | 3001 };
+// type Role = {
+//   role: string;
+// };
+// type ConfigWithRole = Config & Role;
+
+// type StartFunc = (protocol: "http" | "https", port: 3000 | 3001) => string;
+
+// const serverConfig: ConfigWithRole = {
+//   protocol: "http",
+//   port: 3000,
+//   role: "admin",
+// };
+
+// const backupConfig: ConfigWithRole = {
+//   protocol: "https",
+//   port: 3001,
+//   role: "sysadmin",
+// };
+
+// const startServer: StartFunc = (
+//   protocol: "http" | "https",
+//   port: 3000 | 3001
+// ): "Server started" => {
+//   console.log(`'Server started' on ${protocol}://server:${port}`);
+
+//   return "Server started";
+// };
+// startServer(serverConfig.protocol, serverConfig.port);
+
+// type Config = { protocol: "http" | "https"; port: 3000 | 3001 };
+
+interface IConfig {
+  protocol: "http" | "https";
+  port: 3000 | 3001;
+  log: (msg: string) => void;
+}
+
+interface IRole {
   role: string;
-};
-type ConfigWithRole = Config & Role;
+}
 
-type StartFunc = (protocol: "http" | "https", port: 3000 | 3001) => string;
+interface IConfigWithIRole extends IConfig, IRole {}
 
-const serverConfig: ConfigWithRole = {
+const serverConfig: IConfigWithIRole = {
   protocol: "http",
   port: 3000,
   role: "admin",
+  log: (msg: string): void => console.log(msg),
 };
 
-const backupConfig: ConfigWithRole = {
-  protocol: "https",
-  port: 3001,
-  role: "sysadmin",
-};
+type StartFunc = (
+  protocol: "http" | "https",
+  port: 3000 | 3001,
+  log: (msg: string) => void
+) => string;
 
 const startServer: StartFunc = (
   protocol: "http" | "https",
-  port: 3000 | 3001
+  port: 3000 | 3001,
+  log: (msg: string) => void
 ): "Server started" => {
-  console.log(`'Server started' on ${protocol}://server:${port}`);
+  log(`Server started on ${protocol}://server:${port}`);
 
   return "Server started";
 };
-startServer(serverConfig.protocol, serverConfig.port);
+startServer(serverConfig.protocol, serverConfig.port, serverConfig.log);
+
+interface IStyles {
+  [key: string]: string;
+}
+
+const styles: IStyles = {
+  position: "absolute",
+  top: "20px",
+  left: "30px",
+};
