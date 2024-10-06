@@ -375,48 +375,48 @@
 
 // type Config = { protocol: "http" | "https"; port: 3000 | 3001 };
 
-interface IConfig {
-  protocol: "http" | "https";
-  port: 3000 | 3001;
-  log: (msg: string) => void;
-}
+// interface IConfig {
+//   protocol: "http" | "https";
+//   port: 3000 | 3001;
+//   log: (msg: string) => void;
+// }
 
-interface IRole {
-  role: string;
-}
+// interface IRole {
+//   role: string;
+// }
 
-interface IConfigWithIRole extends IConfig, IRole {}
+// interface IConfigWithIRole extends IConfig, IRole {}
 
-const serverConfig: IConfigWithIRole = {
-  protocol: "http",
-  port: 3000,
-  role: "admin",
-  log: (msg: string): void => console.log(msg),
-};
+// const serverConfig: IConfigWithIRole = {
+//   protocol: "http",
+//   port: 3000,
+//   role: "admin",
+//   log: (msg: string): void => console.log(msg),
+// };
 
-type StartFunc = (
-  protocol: "http" | "https",
-  port: 3000 | 3001,
-  log: (msg: string) => void
-) => string;
+// type StartFunc = (
+//   protocol: "http" | "https",
+//   port: 3000 | 3001,
+//   log: (msg: string) => void
+// ) => string;
 
-const startServer: StartFunc = (
-  protocol: "http" | "https",
-  port: 3000 | 3001,
-  log: (msg: string) => void
-): "Server started" => {
-  log(`Server started on ${protocol}://server:${port}`);
+// const startServer: StartFunc = (
+//   protocol: "http" | "https",
+//   port: 3000 | 3001,
+//   log: (msg: string) => void
+// ): "Server started" => {
+//   log(`Server started on ${protocol}://server:${port}`);
 
-  return "Server started";
-};
-startServer(serverConfig.protocol, serverConfig.port, serverConfig.log);
+//   return "Server started";
+// };
+// startServer(serverConfig.protocol, serverConfig.port, serverConfig.log);
 
-interface IStyles {
-  [key: string]: string;
-}
+// interface IStyles {
+//   [key: string]: string;
+// }
 
-const styles: IStyles = {
-  position: "absolute",
-  top: "20px",
-  left: "30px",
-};
+// const styles: IStyles = {
+//   position: "absolute",
+//   top: "20px",
+//   left: "30px",
+// };
